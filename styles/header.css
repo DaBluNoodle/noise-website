@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'NuttyNoisses';
+  src: url('../fonts/NuttyNoisses.woff2') format('woff2'),
+      url('../fonts/NuttyNoisses.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  /* background-color: rgb(242, 240, 239); */
+  z-index: 1000;
+  transition: top 0.3s ease; /* add smooth hide/show animation */
+}
+
+.left-section{
+  width: 150px;
+  display: flex;
+  margin-left: 40px;
+}
+
+.middle-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.right-section{
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 43px;
+}
+
+.page-title{
+  font-family:'NuttyNoisses';
+  font-size: 46px;
+  line-height: 2px;
+  margin: 0;
+  cursor: pointer;
+  color: black;
+}
+
+.page-title a {
+  color: black;            /* match your existing title color */
+  text-decoration: none;   /* remove underline */
+}
+
+.hamburger-icon{
+  width: 18px;
+  cursor: pointer;
+}
+
+.shopping-basket-icon{
+  width: 28px;
+}
+
+.favourited-icon{
+  width: 30px;
+}
+
+.right-section .search-icon,.account-icon{
+  width: 20px;
+  cursor: pointer;
+}
+
+.account-icon{
+  border-radius: 15px;
+}
+
+
+
+
+
+
+/* ==============================
+   Inline SVG Icon Styles (tweakable)
+   ============================== */
+
+:root {
+  --icon-size: 26px;          /* change to resize all icons */
+  --icon-stroke: 2px;         /* line thickness */
+  --icon-color: black;        /* default color */
+  --icon-hover-color: #ff4c00;/* hover color */
+}
+
+/* Base icon appearance and transform system that respects per-icon variables */
+svg.icon {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: inline-block;
+  vertical-align: middle;
+
+  stroke: currentColor;
+  fill: none;
+  stroke-width: var(--icon-stroke);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  color: var(--icon-color);
+  cursor: pointer;
+
+  /* per-icon variables with sensible defaults */
+  --icon-scale: 1;    /* scale factor (1 = default) */
+  --icon-y: 0px;      /* vertical nudge (positive moves down) */
+
+  /* ensure transforms pivot around center and scale is applied consistently */
+  transform-box: fill-box;
+  transform-origin: center;
+
+  /* base transform using variables — hover will reuse scale as well */
+  transform: translateY(var(--icon-y)) scale(var(--icon-scale));
+  transition: color 0.22s ease, transform 0.22s ease;
+}
+
+/* keep stroke consistent when scaling */
+svg.icon * {
+  vector-effect: non-scaling-stroke;
+}
+
+/* hover uses same scale, only adjusts translate for the lift effect */
+svg.icon:hover {
+  color: var(--icon-hover-color);
+  transform: translateY(calc(var(--icon-y) - 2px)) scale(var(--icon-scale));
+}
+
+/* spacing inside header */
+.page-header .left-section,
+.page-header .right-section {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* Per-icon visual balancing — tweak these numbers until they all *look* identical.
+   The values below were chosen to visually harmonize common shapes. */
+
+svg[aria-label="Menu"],
+svg[aria-label="Search"], 
+svg[aria-label="Account"],
+svg[aria-label="Favorites"],
+svg[aria-label="Cart"] 
+ {
+  /* these tend to look smaller, scale them up slightly */
+  --icon-scale: 1;
+} 
+
+svg[aria-label="Favorites"]{
+  --icon-scale: 0.95;
+  --icon-y: -0.5px
+}
+
+
+svg[aria-label="Cart"] {
+  stroke-width: 1.70px; /* 5% thinner than default */
+  --icon-scale: 1.05; /* keep your scaled size */
+}
+
+
+
+
+/* Mobile-specific styles */
+/* @media (max-width: 900px) {
+  .page-header {
+    height: 80px;              
+    padding: 10px 15px;
+  }
+
+  .page-title {
+    font-size: 55px;             
+  }
+
+  .hamburger-icon {
+    width: 20px;                 
+
+  .right-section .search-icon,
+  .right-section .account-icon,
+  .right-section .favourited-icon,
+  .right-section .shopping-basket-icon {
+    width: 30px;                 
+  }
+
+  .account-icon {
+    border-radius: 20px;         
+  }
+
+  .left-section, 
+  .right-section {
+    width: auto;                 
+  }
+
+  .middle-section {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+} */

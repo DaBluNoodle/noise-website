@@ -1,0 +1,41 @@
+/* announcement bar */
+#specialDeals {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  line-height: 36px;            /* was 0 — set to the bar height to vertically center */
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Roboto, Arial;
+  z-index: 9999;
+  overflow: hidden;             /* clip the marquee */
+  font-size: 13px;
+  color: rgb(233, 233, 233);
+  transition: top 300ms ease;   /* smooth hide/show */
+}
+
+/* marquee window */
+#marqueeContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;   /* optional max width of visible area */
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+/* moving text */
+#timerInner {
+  position: absolute;
+  white-space: nowrap;
+  top: 50%;
+  transform: translateY(-50%);
+  will-change: left;    /* hint for smoother animation */
+}

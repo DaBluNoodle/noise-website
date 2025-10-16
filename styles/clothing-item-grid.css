@@ -1,0 +1,96 @@
+/* --- GRID TITLE --- */
+.grid-title {
+  font-family: BBH+Sans+Hegarty, Offside;
+  font-size: 1.2rem;
+  text-align: left;
+  color: black;
+  font-weight: 400; /* thinner */
+}
+
+/* --- GRID LAYOUT --- */
+.clothing-item-grid {
+  margin-top: 27px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 13px;
+  padding-bottom: 30px;
+}
+
+/* --- ITEM BOX --- */
+.item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4; /* item height relative to width */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  background-color: #fff;
+  overflow: hidden;
+  cursor: pointer;
+  height: 400px;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  animation: changeImages 6s ease-in-out;
+}
+
+/* --- IMAGE ANIMATION --- */
+@keyframes changeImages {
+  0%   { background-image: var(--img1); }
+  33%  { background-image: var(--img2); }
+  66%  { background-image: var(--img3); }
+  100% { background-image: var(--img1); }
+}
+
+/* --- MOBILE HOLD ANIMATION --- */
+.item.animate {
+  animation: changeImages 6s linear infinite;
+}
+
+/* --- ITEM INFO (TITLE + PRICE) --- */
+.item .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  font-family: 'Offside', sans-serif;
+  box-sizing: border-box;
+}
+
+.item .title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.item .price {
+  font-size: 0.9rem;
+  font-weight: bold;
+  opacity: 0.9;
+}
+
+/* --- INDIVIDUAL ITEM IMAGES --- */
+.item1 { --img1: url('../images/college-jersey-scotters/IMG_1720.jpg'); --img2: url('../images/college-jersey-scotters/IMG_1707.jpg'); --img3: url('../images/college-jersey-scotters/IMG_1711.jpg'); background-image: var(--img1); }
+.item2 { --img1: url('../images/harajuku-streetwear-tshirt-scotters/S74c4c05afed94ef881f70175decf8c05G.webp'); --img2: url('../images/harajuku-streetwear-tshirt-scotters/Hbf4bdd8fe7c84ea69eeb11353463e280Z.webp'); --img3: url('../images/harajuku-streetwear-tshirt-scotters/A5b4373af490a476ebe0b841e50253399L.jpg'); background-image: var(--img1); }
+.item3 { --img1: url('../images/cartoon-graphic-tshirt-scotters/S48cd4ce5674443179adc214da57ba63bc.webp'); --img2: url('../images/cartoon-graphic-tshirt-scotters/S26670131b9a94a96a9773d4e5973129dM.webp'); --img3: url('../images/cartoon-graphic-tshirt-scotters/S8bbe6fe4730b4f1691323c5ccbacf22dA.webp'); background-image: var(--img1); }
+.item4 { --img1: url('../images/i-can-fly-travis-tshirt-scotters/H65bad009c14d413c87a3995bed38d99bc.webp'); --img2: url('../images/i-can-fly-travis-tshirt-scotters/H3230f7d995e2498eb731b4effcb603b6d.webp'); --img3: url('../images/i-can-fly-travis-tshirt-scotters/H754ddaa3ffa144be85fac24327247c11L.webp'); background-image: var(--img1); }
+.item5 { --img1: url('../images/777-jersey-scotters/Sd7db737ea29b47c3bc35f19ac1c0f70eq.webp'); --img2: url('../images/777-jersey-scotters/Sf7c8aeccf0094d6b88006ddfd767325dE.webp'); --img3: url('../images/777-jersey-scotters/Sc567bcaf861a44bc925169318a107fd7r.webp'); background-image: var(--img1); }
+.item6 { --img1: url('../images/dark-washed-baggy-jeans/S045a822d98e141e3b02c122885e5c3aeq.webp'); --img2: url('../images/dark-washed-baggy-jeans/S7980a30a36e5450196ebf9261be5f7c32.webp'); --img3: url('../images/dark-washed-baggy-jeans/S9288a64d79dc49ac9a86968a49e9552by.webp'); background-image: var(--img1); }
+.item7 { --img1: url('../images/washed-baggy-jeans-scotters/S2d5389daea75427eaabb8113957012d5z.webp'); --img2: url('../images/washed-baggy-jeans-scotters/S3a0ca0a0da3d47a997223cc2a99c12feo.webp'); --img3: url('../images/washed-baggy-jeans-scotters/Sd9ffe6c720ed46a494edb244f2199e8cj.webp'); background-image: var(--img1); }
+.item8 { --img1: url('../images/camo-open-leg-jogger-scotters/Unbenannt.png'); --img2: url('../images/camo-open-leg-jogger-scotters/S93d726bba5b044e892b2806c456f947cS.webp'); --img3: url('../images/camo-open-leg-jogger-scotters/Sfbddf4c15b6042f29995d54c0f878ea9w.webp'); background-image: var(--img1); }
+.item9 { --img1: url('../images/dice-key-chain-scotters/Sbd800a8f038641ed92b7de647de95d94r.webp'); --img2: url('../images/dice-key-chain-scotters/S3e830adc21164a0a94d84f14473a40e2y.webp'); --img3: url('../images/dice-key-chain-scotters/Scb02c5dd16464fbb84185ac5509871f8s.webp'); background-image: var(--img1); }
+.item10 { --img1: url('../images/pearl-necklace-for-men-scotters/S9489599ab4c743779c4592e9e3bb0bd5b.webp'); --img2: url('../images/pearl-necklace-for-men-scotters/Sc30a6f3e574b4decb0606614dff3d8edr.webp'); --img3: url('../images/pearl-necklace-for-men-scotters/Sccfc3bd16d61408ebd80c44f178da512K.webp'); background-image: var(--img1); }
+.item11 { --img1: url('../images/sports-sunglasses-scotters/Sf2dbac06d83a4e8792538d9a5eaa8354H.webp'); --img2: url('../images/sports-sunglasses-scotters/S2d8f1864bee54c698b8fe40107c1af52y.webp'); --img3: url('../images/sports-sunglasses-scotters/S921285f4f58d405289403ed5ac6ad8adW.webp'); background-image: var(--img1); }
+.item12 { --img1: url('../images/star-chain-scotters/LS20250110154646_618bcd61-634d-4b32-ba06-32253f660e86.png'); --img2: url('../images/star-chain-scotters/S2f5efdcd91bb4d07aa90d3aaa412864di.webp'); --img3: url('../images/star-chain-scotters/S9e68803edf4147a58476567ea77d7e89t.webp'); background-image: var(--img1); }
