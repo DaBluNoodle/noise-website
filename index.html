@@ -554,6 +554,7 @@ updateBasket();
 </script>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
 // ==========================
 // Badge Elements
 // ==========================
@@ -598,6 +599,7 @@ items.forEach(item => {
       basket.textContent = 'Add to basket';
     }
     updateBasket();
+     });
   });
 });
 
