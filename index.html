@@ -453,110 +453,12 @@
 })();
 </script>
 
-
-    <!-- Item Animation Touches -->
-    <script>
-      const items = document.querySelectorAll('.item');
-
-      items.forEach(item => {
-        // Desktop: hover still works with CSS
-        // Mobile: touch start
-        item.addEventListener('touchstart', () => {
-          item.classList.add('animate');
-        });
-
-        // Mobile: touch end
-        item.addEventListener('touchend', () => {
-          item.classList.remove('animate');
-        });
-      });
-    </script>
-
-<script>
-// Favorites toggle
-const hearts = document.querySelectorAll('.hover-buttons .heart');
-const favoritesCountBadge = document.getElementById('favorites-count');
-
-// Basket toggle
-const baskets = document.querySelectorAll('.hover-buttons .basket');
-const basketCountBadge = document.getElementById('basket-count');
-
-// Update badge visibility and count
-function updateFavorites() {
-  const totalFavorites = document.querySelectorAll('.hover-buttons .heart.filled').length;
-  favoritesCountBadge.textContent = totalFavorites;
-
-  if (totalFavorites > 0) {
-    favoritesCountBadge.style.display = 'inline-block';
-  } else {
-    favoritesCountBadge.style.display = 'none';
-  }
-}
-
-function updateBasket() {
-  const totalInBasket = Array.from(baskets).filter(b => b.textContent === 'Remove from basket').length;
-  basketCountBadge.textContent = totalInBasket;
-
-  if (totalInBasket > 0) {
-    basketCountBadge.style.display = 'inline-block';
-  } else {
-    basketCountBadge.style.display = 'none';
-  }
-}
-
-// Event listeners
-hearts.forEach(heart => {
-  heart.addEventListener('click', () => {
-    heart.classList.toggle('filled');
-    updateFavorites();
-  });
-});
-
-baskets.forEach(basket => {
-  basket.addEventListener('click', () => {
-    if (basket.textContent === 'Add to basket') {
-      basket.textContent = 'Remove from basket';
-    } else {
-      basket.textContent = 'Add to basket';
-    }
-    updateBasket();
-  });
-});
-
-// Initialize badges on page load
-updateFavorites();
-updateBasket();
-</script>
-
-
     <!-- Item Animation Touches -->
 <script>
-  items = document.querySelectorAll('.item');
-
-  items.forEach(item => {
-    // Start slideshow animation on tap / click for mobile
-    item.addEventListener('click', () => {
-      // If already animating, do nothing
-      if (!item.classList.contains('animate')) {
-        item.classList.add('animate');
-
-        // Remove after slideshow duration
-        setTimeout(() => {
-          item.classList.remove('animate');
-        }, 6000); // match your CSS animation duration
-      }
-    });
-
-    // Desktop hover fallback
-    item.addEventListener('mouseenter', () => item.classList.add('animate'));
-    item.addEventListener('mouseleave', () => item.classList.remove('animate'));
-  });
-</script>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.item');
 
+  // --- Hover / pointer animations ---
   items.forEach(item => {
     const hoverButtons = item.querySelector('.hover-buttons');
 
@@ -567,13 +469,64 @@ updateBasket();
     item.addEventListener('pointerenter', showButtons); // desktop hover
     item.addEventListener('pointerdown', showButtons);  // mobile touch start
 
-    // Keep visible while pointer is down
-    item.addEventListener('pointerup', hideButtons);    // mobile touch end
-    item.addEventListener('pointerleave', hideButtons); // mouse leave
-    item.addEventListener('pointercancel', hideButtons); // touch cancel
+    // Hide when pointer leaves or ends
+    item.addEventListener('pointerup', hideButtons);    
+    item.addEventListener('pointerleave', hideButtons); 
+    item.addEventListener('pointercancel', hideButtons);
   });
-})
 
+  // --- Favorites logic ---
+  const hearts = document.querySelectorAll('.hover-buttons .heart');
+  const favoritesCountBadge = document.getElementById('favorites-count');
+
+  function updateFavorites() {
+    const totalFavorites = document.querySelectorAll('.hover-buttons .heart.filled').length;
+    favoritesCountBadge.textContent = totalFavorites;
+    favoritesCountBadge.style.display = totalFavorites > 0 ? 'inline-block' : 'none';
+  }
+
+  hearts.forEach(heart => {
+    heart.addEventListener('click', () => {
+      heart.classList.toggle('filled');
+      updateFavorites();
+    });
+  });
+
+  // --- Basket logic ---
+  const baskets = document.querySelectorAll('.hover-buttons .basket');
+  const basketCountBadge = document.getElementById('basket-count');
+
+  function updateBasket() {
+    const totalInBasket = Array.from(baskets).filter(b => b.textContent === 'Remove from basket').length;
+    basketCountBadge.textContent = totalInBasket;
+    basketCountBadge.style.display = totalInBasket > 0 ? 'inline-block' : 'none';
+  }
+
+  baskets.forEach(basket => {
+    basket.addEventListener('click', () => {
+      if (basket.textContent === 'Add to basket') {
+        basket.textContent = 'Remove from basket';
+      } else {
+        basket.textContent = 'Add to basket';
+      }
+      updateBasket();
+    });
+  });
+
+  // Initialize badges on page load
+  updateFavorites();
+  updateBasket();
+
+  // --- Optional: click animation for mobile slideshow ---
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      if (!item.classList.contains('animate')) {
+        item.classList.add('animate');
+        setTimeout(() => item.classList.remove('animate'), 6000); // match CSS duration
+      }
+    });
+  });
+});
 </script>
 
 
