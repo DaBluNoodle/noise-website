@@ -19,6 +19,7 @@
 /* --- ITEM BOX --- */
 .item {
   position: relative;
+  overflow: visible;
   width: 100%;
   aspect-ratio: 3/4; /* item height relative to width */
   background-size: cover;
@@ -166,3 +167,11 @@
   transform: scale(1.05);
 }
 
+.hover-buttons button {
+  pointer-events: auto;
+}
+
+.hover-buttons {
+  display: flex;  /* or block */
+  opacity: 1;
+}
