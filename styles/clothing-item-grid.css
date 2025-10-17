@@ -94,3 +94,74 @@
 .item10 { --img1: url('../images/pearl-necklace-for-men-scotters/S9489599ab4c743779c4592e9e3bb0bd5b.webp'); --img2: url('../images/pearl-necklace-for-men-scotters/Sc30a6f3e574b4decb0606614dff3d8edr.webp'); --img3: url('../images/pearl-necklace-for-men-scotters/Sccfc3bd16d61408ebd80c44f178da512K.webp'); background-image: var(--img1); }
 .item11 { --img1: url('../images/sports-sunglasses-scotters/Sf2dbac06d83a4e8792538d9a5eaa8354H.webp'); --img2: url('../images/sports-sunglasses-scotters/S2d8f1864bee54c698b8fe40107c1af52y.webp'); --img3: url('../images/sports-sunglasses-scotters/S921285f4f58d405289403ed5ac6ad8adW.webp'); background-image: var(--img1); }
 .item12 { --img1: url('../images/star-chain-scotters/LS20250110154646_618bcd61-634d-4b32-ba06-32253f660e86.png'); --img2: url('../images/star-chain-scotters/S2f5efdcd91bb4d07aa90d3aaa412864di.webp'); --img3: url('../images/star-chain-scotters/S9e68803edf4147a58476567ea77d7e89t.webp'); background-image: var(--img1); }
+
+
+/* --- HOVER BUTTONS --- */
+/* --- HOVER BUTTONS CONTAINER --- */
+.item .hover-buttons {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 2;
+}
+
+.item:hover .hover-buttons {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* --- HEART BUTTON (top-right) --- */
+.hover-buttons .heart {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hover-buttons .heart:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.hover-buttons .heart svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: black;
+}
+
+.hover-buttons .heart.filled svg {
+  fill: black;
+  stroke: black;
+}
+
+/* --- ADD TO BASKET (top-left) --- */
+.hover-buttons .basket {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 12px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hover-buttons .basket:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+
