@@ -472,44 +472,62 @@
       });
     </script>
 
-    <script>
-// ==========================
-// Heart / Favorites Toggle
-// ==========================
+<script>
+// Favorites toggle
 const hearts = document.querySelectorAll('.hover-buttons .heart');
 const favoritesCountBadge = document.getElementById('favorites-count');
 
+// Basket toggle
+const baskets = document.querySelectorAll('.hover-buttons .basket');
+const basketCountBadge = document.getElementById('basket-count');
+
+// Update badge visibility and count
+function updateFavorites() {
+  const totalFavorites = document.querySelectorAll('.hover-buttons .heart.filled').length;
+  favoritesCountBadge.textContent = totalFavorites;
+
+  if (totalFavorites > 0) {
+    favoritesCountBadge.style.display = 'inline-block';
+  } else {
+    favoritesCountBadge.style.display = 'none';
+  }
+}
+
+function updateBasket() {
+  const totalInBasket = Array.from(baskets).filter(b => b.textContent === 'Remove from basket').length;
+  basketCountBadge.textContent = totalInBasket;
+
+  if (totalInBasket > 0) {
+    basketCountBadge.style.display = 'inline-block';
+  } else {
+    basketCountBadge.style.display = 'none';
+  }
+}
+
+// Event listeners
 hearts.forEach(heart => {
   heart.addEventListener('click', () => {
     heart.classList.toggle('filled');
-
-    // update favorites count
-    const totalFavorites = document.querySelectorAll('.hover-buttons .heart.filled').length;
-    favoritesCountBadge.textContent = totalFavorites;
+    updateFavorites();
   });
 });
-
-// ==========================
-// Basket Toggle
-// ==========================
-const baskets = document.querySelectorAll('.hover-buttons .basket');
-const basketCountBadge = document.getElementById('basket-count');
 
 baskets.forEach(basket => {
   basket.addEventListener('click', () => {
     if (basket.textContent === 'Add to basket') {
-      basket.textContent = 'Remove from basket'
+      basket.textContent = 'Remove from basket';
     } else {
-      basket.textContent = 'Add to basket'
+      basket.textContent = 'Add to basket';
     }
-
-    // update basket count
-    const totalInBasket = Array.from(baskets).filter(b => b.textContent === 'Remove from basket').length;
-    basketCountBadge.textContent = totalInBasket;
+    updateBasket();
   });
 });
 
-    </script>
+// Initialize badges on page load
+updateFavorites();
+updateBasket();
+</script>
+
 
     <!-- Item Animation Touches -->
 <script>

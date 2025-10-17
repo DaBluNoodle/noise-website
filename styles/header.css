@@ -79,7 +79,11 @@
   border-radius: 15px;
 }
 
-
+/* Initially hide badges in header */
+#favorites-count,
+#basket-count {
+  display: none;
+}
 
 
 
