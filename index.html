@@ -19,12 +19,39 @@
   <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-  <!-- CSS with cache-busting -->
-  <link rel="stylesheet" href="styles/general.css?v=20251017">
-  <link rel="stylesheet" href="styles/announcements.css?v=20251017">
-  <link rel="stylesheet" href="styles/header.css?v=20251017">
-  <link rel="stylesheet" href="styles/display.css?v=20251017">
-  <link rel="stylesheet" href="styles/clothing-item-grid.css?v=20251017">
+  <!-- Auto Cache-Busting CSS & JS -->
+  <script>
+    (function() {
+      const version = Date.now(); // unique for every page load
+      const head = document.head;
+
+      // CSS files
+      const cssFiles = [
+        'styles/general.css',
+        'styles/announcements.css',
+        'styles/header.css',
+        'styles/display.css',
+        'styles/clothing-item-grid.css'
+      ];
+      cssFiles.forEach(file => {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = `${file}?v=${version}`;
+        head.appendChild(link);
+      });
+
+      // JS files (if you move scripts to external files)
+      const jsFiles = [
+        'scripts/marquee.js',
+        'scripts/items.js'
+      ];
+      jsFiles.forEach(file => {
+        const script = document.createElement('script');
+        script.src = `${file}?v=${version}`;
+        head.appendChild(script);
+      });
+    })();
+  </script>
 </head>
   
 
