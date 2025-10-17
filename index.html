@@ -529,6 +529,40 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const items = document.querySelectorAll('.item');
+  let activeItem = null; // currently "hovered" or touched item
+
+  items.forEach(item => {
+    const hoverButtons = item.querySelector('.hover-buttons');
+
+    const showButtons = () => hoverButtons.classList.add('visible');
+    const hideButtons = () => hoverButtons.classList.remove('visible');
+
+    // Desktop hover
+    item.addEventListener('mouseenter', () => {
+      if (activeItem !== item) showButtons();
+    });
+    item.addEventListener('mouseleave', () => {
+      if (activeItem !== item) hideButtons();
+    });
+
+    // Touch / mobile
+    item.addEventListener('pointerdown', () => {
+      // Hide buttons on previous active item
+      if (activeItem && activeItem !== item) {
+        activeItem.querySelector('.hover-buttons').classList.remove('visible');
+      }
+
+      // Set this as active and show buttons
+      activeItem = item;
+      showButtons();
+    });
+  });
+});
+</script>
+
 
   </body>
 </html> 
