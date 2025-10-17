@@ -181,3 +181,14 @@
   display: flex;  /* or block */
   opacity: 1;
 }
+
+.hover-buttons {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.hover-buttons.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
