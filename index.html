@@ -438,7 +438,7 @@
     // small delay helps fonts to load so measurements are correct
     setTimeout(initMarquee, 50);
   } else {
-    document.addEventListener('DOMContentLoaded', () => setTimeout(initMarquee, 50));
+    window.addEventListener('load', initMarquee);
   }
 })();
 </script>
