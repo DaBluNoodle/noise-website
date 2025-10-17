@@ -118,6 +118,12 @@
   pointer-events: auto;
 }
 
+/* Mobile / active animation: always show */
+.item.animate .hover-buttons {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
 /* --- HEART BUTTON (top-right) --- */
 .hover-buttons .heart {
   background: rgba(255, 255, 255, 0.9);

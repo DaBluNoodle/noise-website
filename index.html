@@ -510,5 +510,30 @@ baskets.forEach(basket => {
 });
 
     </script>
+
+    <!-- Item Animation Touches -->
+<script>
+  items = document.querySelectorAll('.item');
+
+  items.forEach(item => {
+    // Start slideshow animation on tap / click for mobile
+    item.addEventListener('click', () => {
+      // If already animating, do nothing
+      if (!item.classList.contains('animate')) {
+        item.classList.add('animate');
+
+        // Remove after slideshow duration
+        setTimeout(() => {
+          item.classList.remove('animate');
+        }, 6000); // match your CSS animation duration
+      }
+    });
+
+    // Desktop hover fallback
+    item.addEventListener('mouseenter', () => item.classList.add('animate'));
+    item.addEventListener('mouseleave', () => item.classList.remove('animate'));
+  });
+</script>
+
   </body>
 </html> 
