@@ -179,6 +179,7 @@ svg[aria-label="Cart"] {
   top: -6px;
   right: -6px;
   background: black;
+  /* font-family: Roboto; */
   color: white;
   font-size: 0.7rem;
   font-weight: bold;
