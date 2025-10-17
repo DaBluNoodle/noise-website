@@ -151,6 +151,7 @@
 /* --- ADD TO BASKET (top-left) --- */
 .hover-buttons .basket {
   background: rgba(255, 255, 255, 0.9);
+  color: black;
   border: none;
   border-radius: 12px;
   padding: 6px 10px;
