@@ -31,7 +31,8 @@
           'styles/announcements.css',
           'styles/header.css',
           'styles/display.css',
-          'styles/clothing-item-grid.css'
+          'styles/clothing-item-grid.css',
+          'styles/sidebar.css'
         ];
         cssFiles.forEach(file => {
           const link = document.createElement('link');
@@ -43,11 +44,13 @@
         // JS files (if you move scripts to external files)
         const jsFiles = [
           'scripts/marquee.js',
-          'scripts/fav-basket.js'
+          'scripts/fav-basket.js',
+          'scripts/sidebar.js'
         ];
         jsFiles.forEach(file => {
           const script = document.createElement('script');
           script.src = `${file}?v=${version}`;
+          script.defer = true;
           head.appendChild(script);
         });
       })();
@@ -61,7 +64,6 @@
         <span id="timerInner"></span>
       </div>
     </div>
-
     <!-- Page Header -->
     <div class="page-header">
       <div class="left-section">
@@ -110,6 +112,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Sidebar (hidden by default) -->
+    <div id="sidebar">
+      <button id="closeSidebar">&times;</button>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+<!-- Overlay for dimming background -->
+<div id="overlay"></div>
+
      <!-- Display Image -->
     <div class="container">
       <div class="display">
@@ -305,6 +323,9 @@
       </div>
     </div>
     </div>
+
+<script src="scripts/sidebar.js"></script>
+
   </body>
 </html> 
 

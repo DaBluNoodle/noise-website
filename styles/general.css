@@ -1,7 +1,7 @@
   /* Push body content down only for header height */
   body {
     margin: 0;
-    padding-top: 50px; /* header height only */
+    padding-top: 70px; /* header height only */
     background-color: white;
     /* background-color: rgb(242, 240, 239); */
     font-family: BBH Sans Hegarty, Arial;
