@@ -33,6 +33,7 @@
   justify-content: center;
   margin-left: 20px;
   margin-right: 20px;
+  flex: 1;
 }
 
 .right-section{
