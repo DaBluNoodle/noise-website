@@ -1,350 +1,310 @@
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>NØISE</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NØISE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <!-- Favicons -->
-      <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
-      <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="512x512" href="favicons/android-chrome-512x512.png">
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicons/android-chrome-512x512.png">
 
-      <!-- Fonts -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Offside&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Offside&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-      <!-- Auto Cache-Busting CSS & JS -->
-      <script>
-        (function() {
-          const version = Date.now(); // unique for every page load
-          const head = document.head;
+    <!-- Auto Cache-Busting CSS & JS -->
+    <script>
+      (function() {
+        const version = Date.now(); // unique for every page load
+        const head = document.head;
 
-          // CSS files
-          const cssFiles = [
-            'styles/general.css',
-            'styles/announcements.css',
-            'styles/header.css',
-            'styles/display.css',
-            'styles/clothing-item-grid.css',
-            'styles/sidebar.css',
-          ];
-          cssFiles.forEach(file => {
-            const link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.href = `${file}?v=${version}`;
-            head.appendChild(link);
-          });
+        // CSS files
+        const cssFiles = [
+          'styles/general.css',
+          'styles/announcements.css',
+          'styles/header.css',
+          'styles/display.css',
+          'styles/clothing-item-grid.css'
+        ];
+        cssFiles.forEach(file => {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = `${file}?v=${version}`;
+          head.appendChild(link);
+        });
 
-          // JS files (if you move scripts to external files)
-          const jsFiles = [
-            'scripts/index.js',
-            'scripts/basket',
-            'scripts/items.js',
-            'scripts/marquee.js',
-            'scripts/sidebar.js'
-          ];
-          jsFiles.forEach(file => {
-            const script = document.createElement('script');
-            script.src = `${file}?v=${version}`;
-            head.appendChild(script);
-          });
-        })();
-      </script>
-    </head>
-    
+        // JS files (if you move scripts to external files)
+        const jsFiles = [
+          'scripts/index.js'
+        ];
+        jsFiles.forEach(file => {
+          const script = document.createElement('script');
+          script.src = `${file}?v=${version}`;
+          head.appendChild(script);
+        });
+      })();
+    </script>
+  </head>
+  
+<body>
+    <!-- Special Deals / Announcement Bar -->
+    <div id="specialDeals">
+      <div id="marqueeContainer">
+        <span id="timerInner"></span>
+      </div>
+    </div>
 
-    <body>
-      <!-- Special Deals / Announcement Bar -->
-      <div id="specialDeals">
-        <div id="marqueeContainer">
-          <span id="timerInner"></span>
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="left-section">
+        <!-- Hamburger menu icon -->
+        <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Menu">
+          <line x1="4" y1="7" x2="20" y2="7" />
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <line x1="4" y1="17" x2="20" y2="17" />
+          <title>Menu</title>
+         </svg>
+      </div>
+      <div class="middle-section">
+        <p class="page-title">
+          <a href="index.html">NØISE</a>
+        </p>
+      </div>
+       <div class="right-section">
+        <!-- Search -->
+        <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Search">
+          <circle cx="11" cy="11" r="6" />
+          <line x1="17" y1="17" x2="21" y2="21" />
+          <title>Search</title>
+        </svg>
+         <!-- Account -->
+        <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Account">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20c0-4 8-4 8-4s8 0 8 4" />
+          <title>Account</title>
+        </svg>
+         <!-- Heart / Favorites -->
+        <div class="icon-wrapper">
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Favorites">
+            <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+          </svg>
+          <span class="badge" id="favorites-count">0</span>
+        </div>
+        <!-- Basket / Cart -->
+        <div class="icon-wrapper">
+          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Cart">
+            <path d="M3 7h18l-2 11H5L3 7z"/>
+            <path d="M10 7l2-3 2 3"/>
+            <path d="M8 7l1 4"/>
+            <path d="M16 7l-1 4"/>
+          </svg>
+          <span class="badge" id="basket-count">0</span>
         </div>
       </div>
+    </div>
+     <!-- Display Image -->
+    <div class="container">
+      <div class="display">
+        <picture>
+          <!-- WebP version first -->
+          <source srcset="display/display-1.webp" type="image/webp">
+          <!-- Fallback JPEG -->
+          <img src="display/display-1.jpg" alt="Big Display Image">
+        </picture>
 
-      <!-- Page Header -->
-      <div class="page-header">
-        <div class="left-section">
-          <!-- Hamburger menu icon -->
-          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Menu">
-            <line x1="4" y1="7" x2="20" y2="7" />
-            <line x1="4" y1="12" x2="20" y2="12" />
-            <line x1="4" y1="17" x2="20" y2="17" />
-            <title>Menu</title>
-          </svg>
+        <!-- Display Text -->
+        <div class="display-text-container">
+          <u>AUTUMN SALE</u>
         </div>
-
-        <div class="middle-section">
-          <p class="page-title">
-            <a href="index.html">NØISE</a>
-          </p>
-        </div>
-
-        <div class="right-section">
-          <!-- Search -->
-          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Search">
-            <circle cx="11" cy="11" r="6" />
-            <line x1="17" y1="17" x2="21" y2="21" />
-            <title>Search</title>
-          </svg>
-
-          <!-- Account -->
-          <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Account">
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 20c0-4 8-4 8-4s8 0 8 4" />
-            <title>Account</title>
-          </svg>
-
-          <!-- Heart / Favorites -->
-          <div class="icon-wrapper">
-            <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Favorites">
+      </div>
+    </div>
+     <!-- Clothing Items Grid -->
+    <div class="container">
+    <h1 class="grid-title">BEST SELLERS</h1>
+    <div class="clothing-item-grid">
+      <div class="item item1">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
               <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
             </svg>
-            <span class="badge" id="favorites-count">0</span>
-          </div>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">College Jersey</div>
+          <div class="price">$39.99</div>
+        </div>
+      </div>
 
-          <!-- Basket / Cart -->
-          <div class="icon-wrapper">
-            <svg class="icon" viewBox="0 0 24 24" role="img" aria-label="Cart">
-              <path d="M3 7h18l-2 11H5L3 7z"/>
-              <path d="M10 7l2-3 2 3"/>
-              <path d="M8 7l1 4"/>
-              <path d="M16 7l-1 4"/>
+      <div class="item item2">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
             </svg>
-            <span class="badge" id="basket-count">0</span>
-          </div>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Harajuku Streetwear T-Shirt</div>
+          <div class="price">$29.99</div>
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
-      <aside id="sidebar" class="sidebar">
-        <!-- Close button -->
-        <button id="close-sidebar" class="close-btn">&times;</button>
-
-        <!-- Sidebar navigation -->
-        <nav class="sidebar-nav">
-          <ul>
-            <li><a href="#">Best Selling</a></li>
-            <li><a href="#">Back In Stock</a></li>
-            <li><a href="#">Collections</a></li>
-            <li><a href="#">Clothing</a></li>
-            <li><a href="#">Shoes</a></li>
-            <li><a href="#">Account</a></li>
-            <li><a href="#">Support</a></li>
-          </ul>
-        </nav>
-      </aside>
-
-      <!-- Overlay behind sidebar -->
-      <div id="sidebar-overlay" class="sidebar-overlay"></div>
-
-
-      <!-- Display Image -->
-      <div class="container">
-        <div class="display">
-          <picture>
-            <!-- WebP version first -->
-            <source srcset="display/display-1.webp" type="image/webp">
-            <!-- Fallback JPEG -->
-            <img src="display/display-1.jpg" alt="Big Display Image">
-          </picture>
-
-          <!-- Display Text -->
-          <div class="display-text-container">
-            <u>AUTUMN SALE</u>
-          </div>
+      <div class="item item3">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Cartoon Graphic T-Shirt</div>
+          <div class="price">$27.99</div>
         </div>
       </div>
 
-      <!-- Clothing Items Grid -->
-      <div class="container">
-      <h1 class="grid-title">BEST SELLERS</h1>
-      <div class="clothing-item-grid">
-        <div class="item item1">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">College Jersey</div>
-            <div class="price">$39.99</div>
-          </div>
+      <div class="item item4">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
         </div>
-
-        <div class="item item2">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Harajuku Streetwear T-Shirt</div>
-            <div class="price">$29.99</div>
-          </div>
+        <div class="info">
+          <div class="title">I Can Fly Travis T-Shirt</div>
+          <div class="price">$32.99</div>
         </div>
-
-        <div class="item item3">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Cartoon Graphic T-Shirt</div>
-            <div class="price">$27.99</div>
-          </div>
+      </div>
+       <div class="item item5">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
         </div>
-
-        <div class="item item4">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">I Can Fly Travis T-Shirt</div>
-            <div class="price">$32.99</div>
-          </div>
+        <div class="info">
+          <div class="title">777 Jersey</div>
+          <div class="price">$35.99</div>
         </div>
-
-        <div class="item item5">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">777 Jersey</div>
-            <div class="price">$35.99</div>
-          </div>
+      </div>
+       <div class="item item6">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
         </div>
-
-        <div class="item item6">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Dark Washed Baggy Jeans</div>
-            <div class="price">$49.99</div>
-          </div>
+        <div class="info">
+          <div class="title">Dark Washed Baggy Jeans</div>
+          <div class="price">$49.99</div>
         </div>
-
-        <div class="item item7">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Washed Baggy Jeans</div>
-            <div class="price">$44.99</div>
-          </div>
+      </div>
+       <div class="item item7">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
         </div>
-
-        <div class="item item8">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Camo Open Leg Joggers</div>
-            <div class="price">$39.99</div>
-          </div>
+        <div class="info">
+          <div class="title">Washed Baggy Jeans</div>
+          <div class="price">$44.99</div>
         </div>
-
+      </div>
+       <div class="item item8">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Camo Open Leg Joggers</div>
+          <div class="price">$39.99</div>
+        </div>
+      </div>
         <div class="item item9">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Dice Key Chain</div>
-            <div class="price">$9.99</div>
-          </div>
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
         </div>
-
-        <div class="item item10">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Pearl Necklace</div>
-            <div class="price">$24.99</div>
-          </div>
-        </div>
-
-        <div class="item item11">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Sports Sunglasses</div>
-            <div class="price">$19.99</div>
-          </div>
-        </div>
-
-        <div class="item item12">
-          <div class="hover-buttons">
-            <button class="basket">Add to basket</button>
-            <button class="heart">
-              <svg viewBox="0 0 24 24">
-                <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
-              </svg>
-            </button>
-          </div>
-          <div class="info">
-            <div class="title">Star Chain</div>
-            <div class="price">$22.99</div>
-          </div>
+        <div class="info">
+          <div class="title">Dice Key Chain</div>
+          <div class="price">$9.99</div>
         </div>
       </div>
+       <div class="item item10">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Pearl Necklace</div>
+          <div class="price">$24.99</div>
+        </div>
       </div>
-    </body>
-  </html> 
+
+      <div class="item item11">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Sports Sunglasses</div>
+          <div class="price">$19.99</div>
+        </div>
+      </div>
+
+      <div class="item item12">
+        <div class="hover-buttons">
+          <button class="basket">Add to basket</button>
+          <button class="heart">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20.5l-1.3-1.2C6 15 3 12.2 3 8.9 3 6.2 5.1 4 7.9 4c1.6 0 3.1.8 4.1 2.1C13 4.8 14.5 4 16.1 4 18.9 4 21 6.2 21 8.9c0 3.3-3 6.1-7.7 10.4L12 20.5z"/>
+            </svg>
+          </button>
+        </div>
+        <div class="info">
+          <div class="title">Star Chain</div>
+          <div class="price">$22.99</div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+</html> 
+
+         
