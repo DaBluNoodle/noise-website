@@ -21,7 +21,7 @@
     }
 
     // Set sale end date (update as needed)
-    const saleEnd = new Date(2025, 9, 17, 23, 59, 59).getTime();
+    const saleEnd = new Date(2025, 9, 25, 23, 59, 59).getTime();
 
     let containerWidth = marqueeContainer.offsetWidth;
     let textWidth = timerElement.offsetWidth;

@@ -32,7 +32,8 @@
           'styles/header.css',
           'styles/display.css',
           'styles/clothing-item-grid.css',
-          'styles/sidebar.css'
+          'styles/sidebar.css',
+          'styles/searchbar.css'
         ];
         cssFiles.forEach(file => {
           const link = document.createElement('link');
@@ -45,7 +46,8 @@
         const jsFiles = [
           'scripts/marquee.js',
           'scripts/fav-basket.js',
-          'scripts/sidebar.js'
+          'scripts/sidebar.js',
+          'scripts/searchbar.js'
         ];
         jsFiles.forEach(file => {
           const script = document.createElement('script');
@@ -124,9 +126,24 @@
         <li><a href="#">Contact</a></li>
       </ul>
     </div>
+    <!-- Overlay (for dimming background) -->
+    <div id="overlay"></div>
 
-<!-- Overlay for dimming background -->
-<div id="overlay"></div>
+    <div id="searchbar-overlay">
+      <div class="search-container">
+        <input type="text" placeholder="Search..." id="searchInput">
+        <div class="popular-results" id="popularResults">
+          <div>College Jersey</div>
+          <div>Harajuku Streetwear T-Shirt</div>
+          <div>Cartoon Graphic T-Shirt</div>
+          <div>I Can Fly Travis T-Shirt</div>
+          <div>777 Jersey</div>
+        </div>
+        <!-- <button id="closeSearch">&times;</button> -->
+      </div>
+    </div>
+
+
 
      <!-- Display Image -->
     <div class="container">
@@ -324,8 +341,7 @@
     </div>
     </div>
 
-<script src="scripts/sidebar.js"></script>
-
+    <script src="scripts/sidebar.js"></script>
   </body>
 </html> 
 
