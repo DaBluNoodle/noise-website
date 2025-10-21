@@ -192,6 +192,31 @@ svg[aria-label="Cart"] {
   pointer-events: none;
 }
 
+/* ==============================
+   Smooth Hover Lift for Icon Badges
+   ============================== */
+
+.icon-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Both icon and badge respond smoothly */
+.icon-wrapper svg.icon,
+.icon-wrapper .badge {
+  transition: transform 0.25s ease, color 0.25s ease, opacity 0.25s ease;
+}
+
+/* When hovering over the icon area */
+.icon-wrapper:hover svg.icon {
+  transform: translateY(-2px) scale(1.1);
+  color: var(--icon-hover-color);
+}
+
+.icon-wrapper:hover .badge {
+  transform: translateY(-2px);
+  opacity: 1;
+}
 
 
 
